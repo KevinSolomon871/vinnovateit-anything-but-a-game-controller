@@ -1,94 +1,98 @@
-\# Anything but a Game Controller — Cyber Marble Run
+<h1>Anything but a Game Controller — Cyber Marble Run</h1>
 
 
 
-Turn your smartphone into a real-time motion controller for a 2D laptop browser game using WebSockets and native mobile motion APIs.
+<p>Turn your smartphone into a real-time motion controller for a 2D laptop browser game using WebSockets and mobile motion sensors.</p>
 
 
 
-\---
+<hr>
 
 
 
-\## Demo
-
-\- \*\*Video Demonstration:\*\* 'https://drive.google.com/file/d/1xWBQ\_hQ2\_lSz3f5jZbagrDJYAHqED8BP/view?usp=drive\_link'
-
-\- \*\*Live Local Server:\*\* `http://localhost:3000`
+<h2>Demo</h2>
 
 
 
-\---
+\* <b>Video Demonstration:</b> https://drive.google.com/file/d/1xWBQ\_hQ2\_lSz3f5jZbagrDJYAHqED8BP/view?usp=drive\_link
+
+\* <b>Local Game URL:</b> http://localhost:3000
 
 
 
-\## Tech Stack
-
-\- \*\*Server:\*\* Node.js, Express, `ws` (WebSockets)
-
-\- \*\*Game (Laptop):\*\* HTML5 Canvas, Vanilla JavaScript
-
-\- \*\*Controller (Mobile):\*\* DeviceOrientation API, DeviceMotion API, Web Vibration API
-
-\- \*\*Pairing:\*\* Dynamic QR code generation via `qrcode`
+<hr>
 
 
 
-\---
+<h2>Tech Stack</h2>
 
 
 
-\## Features \& Implementation
+\* <b>Backend:</b> Node.js, Express, ws (WebSockets)
+
+\* <b>Laptop Client:</b> HTML5 Canvas, Vanilla JavaScript
+
+\* <b>Mobile Controller:</b> DeviceOrientation API, DeviceMotion API, Web Vibration API
+
+\* <b>Device Pairing:</b> Dynamic QR code generation via qrcode
 
 
 
-\### 1. Pairing System
-
-\- The laptop game starts a session and generates a 4-character Room ID.
-
-\- A dynamic QR code encodes the local LAN link (`http://<LAN\_IP>:3000/controller.html?room=<ROOM\_ID>`).
-
-\- Scanning the QR code or manually entering the code on mobile links both devices instantly over a dedicated WebSocket room.
+<hr>
 
 
 
-\### 2. Motion Controls \& Calibration
-
-\- \*\*Tilt Steering:\*\* Uses phone `beta` (pitch) and `gamma` (roll) angles mapped directly to the marble's 2D velocity vectors.
-
-\- \*\*Shake to Jump:\*\* Uses accelerometer spikes to trigger jumps over pits and obstacles.
-
-\- \*\*One-Tap Calibration:\*\* Captures current holding posture as the neutral `(0, 0)` reference point.
-
-\- \*\*iOS Compatibility:\*\* Handles explicit user-gesture permission requests for Safari motion sensors.
+<h2>Key Features</h2>
 
 
 
-\### 3. Latency \& Input Smoothing
+<b>Pairing System</b>
 
-\- \*\*60Hz Telemetry:\*\* Controller data is throttled to \~16ms intervals to prevent network congestion.
+\* The laptop creates a session with a unique 4-character Room ID.
 
-\- \*\*Low-Pass Filter:\*\* Applies an exponential moving average to filter sensor noise and hand tremors.
+\* A dynamic QR code displays the local network link.
 
-\- \*\*Deadzone \& Velocity Cap:\*\* Includes a \~12% neutral deadzone to stop micro-drifting, with strict velocity clamping and friction damping for tight handling.
-
-\- \*\*RTT Ping Monitor:\*\* Heartbeat packets continuously display round-trip latency in milliseconds on both screens.
+\* Scanning the QR code or manually entering the code links the phone and laptop over WebSockets.
 
 
 
-\---
+<b>Motion Controls \& Calibration</b>
+
+\* <b>Tilt Steering:</b> Uses phone tilt angles (beta and gamma) mapped to the marble velocity.
+
+\* <b>Shake to Jump:</b> Uses accelerometer spikes to jump over hazards.
+
+\* <b>Calibration:</b> Sets any resting hand position as the neutral (0, 0) point.
+
+\* <b>iOS Compatibility:</b> Handles explicit permission requests for Safari motion sensors.
 
 
 
-\## Setup \& Running Locally
+<b>Low Latency \& Physics Tuning</b>
+
+\* <b>60Hz Rate Limiting:</b> Sends telemetry packets every \~16ms to avoid network bloat.
+
+\* <b>Input Filtering:</b> Uses a low-pass filter to smooth hand tremors.
+
+\* <b>Deadzone \& Speed Limit:</b> 12% deadzone prevents micro-drifting, with strict velocity caps and friction damping for tight control.
+
+\* <b>Live Ping:</b> Real-time round-trip latency shown in milliseconds on both screens.
 
 
 
-1\. \*\*Clone the repository:\*\*
+<hr>
 
-&#x20;  ```bash
 
-&#x20;  git clone \[https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git](https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git)
 
-&#x20;  cd vinnovateit-anything-but-a-game-controller
+<h2>Setup \& Running Locally</h2>
+
+
+
+1\. <b>Clone the repository:</b>
+
+```bash
+
+git clone \[https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git](https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git)
+
+cd vinnovateit-anything-but-a-game-controller
 
