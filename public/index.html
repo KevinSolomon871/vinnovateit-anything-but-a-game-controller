@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Marble Run — Anything but a Game Controller</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top Cyber HUD Header -->
+  <header class="cyber-header">
+    <div class="brand-group">
+      <div class="brand-logo">M</div>
+      <div>
+        <div class="brand-title">Cyber Marble Run // Maze Survivor</div>
+        <div class="brand-subtitle">Phone-as-Motion-Controller over 60Hz WebSockets</div>
+      </div>
+    </div>
+
+    <div class="hud-metrics">
+      <div class="metric-pill" id="connectionPill">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Waiting for Phone...</span>
+      </div>
+      <div class="metric-pill">
+        <span>PING:</span>
+        <strong id="pingValue">-- ms</strong>
+      </div>
+      <div class="metric-pill">
+        <span>STREAM:</span>
+        <strong id="hzValue">0 Hz</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace: Left Pairing/Telemetry Sidebar + Right 2D Game Canvas -->
+  <main class="laptop-workspace">
+    <aside class="sidebar-panel">
+      <div>
+        <div class="panel-section-title">1. Room Pairing Code</div>
+        <div class="room-badge-box">
+          <div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">ROOM ID</div>
+            <div class="room-code-display" id="roomCodeDisplay">----</div>
+          </div>
+          <button class="cyber-btn" id="newRoomBtn" title="Generate a fresh 4-char Room ID">New Room</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel-section-title">2. Scan with Phone Camera</div>
+        <div class="qr-frame">
+          <img id="qrImage" alt="Scan QR Code to Pair Phone Controller" style="display:none;" />
+          <canvas id="qrFallbackCanvas" width="196" height="196" style="display:none;"></canvas>
+          <div class="pair-url-box" id="pairUrlText">Initializing local LAN session...</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel-section-title">3. Live Phone Telemetry</div>
+        <div class="telemetry-card">
+          <div class="telemetry-row">
+            <span>Tilt X (Gamma)</span>
+            <strong id="tiltXText">0.00</strong>
+          </div>
+          <div class="telemetry-bar-track">
+            <div class="telemetry-bar-fill" id="tiltXBar"></div>
+          </div>
+
+          <div class="telemetry-row" style="margin-top: 4px;">
+            <span>Tilt Y (Beta)</span>
+            <strong id="tiltYText">0.00</strong>
+          </div>
+          <div class="telemetry-bar-track">
+            <div class="telemetry-bar-fill" id="tiltYBar"></div>
+          </div>
+
+          <div class="telemetry-row" style="margin-top: 6px;">
+            <span>Airborne / Jump</span>
+            <strong id="jumpStateText">GROUNDED</strong>
+          </div>
+          <div class="telemetry-row">
+            <span>Boost Thruster</span>
+            <strong id="boostStateText">IDLE</strong>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+        <button class="cyber-btn primary-cta" id="resetGameBtn">Restart Run (R)</button>
+        <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.45; font-family: var(--font-mono);">
+          <strong>Controls:</strong> Tilt phone to steer marble. Shake phone (or tap JUMP) to leap over void holes &amp; laser barriers. Collect cyan/magenta Cyber Gems before the countdown expires! (Keyboard fallback: WASD/Arrows + Space + Shift).
+        </div>
+      </div>
+    </aside>
+
+    <!-- 2D Canvas Game Arena -->
+    <section class="canvas-stage">
+      <div class="game-overlay-hud">
+        <div class="score-cluster">
+          <div class="stat-box">
+            <div class="stat-label">SCORE</div>
+            <div class="stat-value" id="scoreDisplay">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">SECTOR / LEVEL</div>
+            <div class="stat-value" id="levelDisplay">1</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">STREAK</div>
+            <div class="stat-value" id="streakDisplay">x1</div>
+          </div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">COUNTDOWN TIMER</div>
+          <div class="stat-value" id="timerDisplay">60.0s</div>
+        </div>
+      </div>
+
+      <canvas id="gameCanvas" width="1100" height="720"></canvas>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

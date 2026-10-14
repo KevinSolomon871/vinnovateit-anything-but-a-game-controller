@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cyber Motion Controller — Anything but a Game Controller</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="controller-shell">
+    <!-- Top Connection & Manual Room ID Entry Bar -->
+    <section class="controller-top-bar">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="status-dot" id="ctrlStatusDot"></span>
+        <div>
+          <div style="font-size:0.78rem; font-weight:700;" id="ctrlStatusText">Connecting...</div>
+          <div style="font-size:0.68rem; font-family:var(--font-mono); color:var(--text-muted);">
+            PING: <strong id="ctrlPingValue" style="color:var(--cyan);">-- ms</strong>
+          </div>
+        </div>
+      </div>
+
+      <form class="room-join-row" id="roomForm">
+        <input
+          type="text"
+          id="roomInput"
+          class="cyber-input"
+          maxlength="4"
+          placeholder="ROOM"
+          aria-label="4-Character Room ID"
+          autocomplete="off"
+        />
+        <button type="submit" class="cyber-btn">Join</button>
+      </form>
+    </section>
+
+    <!-- iOS / Android Sensor Permission & Neutral Calibration Gate -->
+    <section class="sensor-gate-card">
+      <button type="button" class="cyber-btn primary-cta" id="startCalibrateBtn">
+        Start / Calibrate Sensors
+      </button>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <span style="font-size:0.74rem; color:var(--text-muted); font-family:var(--font-mono);" id="sensorStateLabel">
+          Tap above to unlock iOS/Android gyro &amp; zero neutral angle
+        </span>
+        <button type="button" class="cyber-btn" id="recalibrateBtn" style="padding:7px 12px; font-size:0.74rem;">
+          Calibrate Zero
+        </button>
+      </div>
+    </section>
+
+    <!-- Virtual Bubble Level (Visual Tilt Feedback + Touch Fallback) -->
+    <section class="bubble-stage" id="bubbleStage">
+      <div class="bubble-gauge" id="bubbleGauge">
+        <div class="bubble-crosshair-h"></div>
+        <div class="bubble-crosshair-v"></div>
+        <div class="bubble-deadzone-ring" title="Neutral Deadzone"></div>
+        <div class="bubble-puck" id="bubblePuck"></div>
+      </div>
+      <div class="bubble-readout" id="bubbleReadout">
+        X: 0.00 | Y: 0.00 | Hold comfortable angle &amp; tap Calibrate
+      </div>
+    </section>
+
+    <!-- On-Screen Arcade Action Buttons (Boost & Shake/Jump) -->
+    <section class="action-pad-grid">
+      <button type="button" class="arcade-action-btn boost-btn" id="boostBtn">
+        <span>BOOST</span>
+        <span class="sub-hint">HOLD FOR TURBO</span>
+      </button>
+      <button type="button" class="arcade-action-btn jump-btn" id="jumpBtn">
+        <span>JUMP</span>
+        <span class="sub-hint">OR SHAKE PHONE</span>
+      </button>
+    </section>
+  </main>
+
+  <script src="controller.js"></script>
+</body>
+</html>

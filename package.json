@@ -1,0 +1,18 @@
+{
+  "name": "anything-but-a-game-controller",
+  "version": "1.0.0",
+  "description": "Zero-config phone-as-motion-controller for a laptop 2D Cyber Marble Run browser game over WebSockets.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "qrcode": "^1.5.4",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
