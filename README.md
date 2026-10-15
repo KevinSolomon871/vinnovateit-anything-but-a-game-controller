@@ -14,7 +14,7 @@
 
 
 
-\* **Video Demonstration:** https://drive.google.com/file/d/1xWBQ\_hQ2\_lSz3f5jZbagrDJYAHqED8BP/view?usp=drive\_link
+\* **Video Demonstration:** https://drive.google.com/file/d/1xWBQ\\\_hQ2\\\_lSz3f5jZbagrDJYAHqED8BP/view?usp=drive\\\_link
 
 \* **Local Game URL:** http://localhost:3000
 
@@ -84,7 +84,7 @@
 
 
 
-<h2>Setup \\\& Running Locally</h2>
+<h2>Setup \\\\\\\& Running Locally</h2>
 
 
 
@@ -92,8 +92,9 @@
 
 ```bash
 
-git clone \\\[https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git](https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git)
+git clone \\\\\\\[https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git](https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git)
 
 cd vinnovateit-anything-but-a-game-controller
+
 
 
