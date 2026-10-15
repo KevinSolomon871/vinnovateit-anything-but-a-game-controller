@@ -14,9 +14,9 @@
 
 
 
-\* <b>Video Demonstration:</b> https://drive.google.com/file/d/1xWBQ\_hQ2\_lSz3f5jZbagrDJYAHqED8BP/view?usp=drive\_link
+\* **Video Demonstration:** https://drive.google.com/file/d/1xWBQ\_hQ2\_lSz3f5jZbagrDJYAHqED8BP/view?usp=drive\_link
 
-\* <b>Local Game URL:</b> http://localhost:3000
+\* **Local Game URL:** http://localhost:3000
 
 
 
@@ -28,13 +28,13 @@
 
 
 
-\* <b>Backend:</b> Node.js, Express, ws (WebSockets)
+\* **Backend:** Node.js, Express, ws (WebSockets)
 
-\* <b>Laptop Client:</b> HTML5 Canvas, Vanilla JavaScript
+\* **Laptop Client:** HTML5 Canvas, Vanilla JavaScript
 
-\* <b>Mobile Controller:</b> DeviceOrientation API, DeviceMotion API, Web Vibration API
+\* **Mobile Controller:** DeviceOrientation API, DeviceMotion API, Web Vibration API
 
-\* <b>Device Pairing:</b> Dynamic QR code generation via qrcode
+\* **Device Pairing:** Dynamic QR code generation via qrcode
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-<b>Pairing System</b>
+**Pairing System**
 
 \* The laptop creates a session with a unique 4-character Room ID.
 
@@ -56,27 +56,27 @@
 
 
 
-<b>Motion Controls \& Calibration</b>
+**Motion Controls \& Calibration**
 
-\* <b>Tilt Steering:</b> Uses phone tilt angles (beta and gamma) mapped to the marble velocity.
+\* **Tilt Steering:** Uses phone tilt angles (beta and gamma) mapped to the marble velocity.
 
-\* <b>Shake to Jump:</b> Uses accelerometer spikes to jump over hazards.
+\* **Shake to Jump:** Uses accelerometer spikes to jump over hazards.
 
-\* <b>Calibration:</b> Sets any resting hand position as the neutral (0, 0) point.
+\* **Calibration:** Sets any resting hand position as the neutral (0, 0) point.
 
-\* <b>iOS Compatibility:</b> Handles explicit permission requests for Safari motion sensors.
+\* **iOS Compatibility:** Handles explicit permission requests for Safari motion sensors.
 
 
 
-<b>Low Latency \& Physics Tuning</b>
+**Low Latency \& Physics Tuning**
 
-\* <b>60Hz Rate Limiting:</b> Sends telemetry packets every \~16ms to avoid network bloat.
+\* **60Hz Rate Limiting:** Sends telemetry packets every \~16ms to avoid network bloat.
 
-\* <b>Input Filtering:</b> Uses a low-pass filter to smooth hand tremors.
+\* **Input Filtering:** Uses a low-pass filter to smooth hand tremors.
 
-\* <b>Deadzone \& Speed Limit:</b> 12% deadzone prevents micro-drifting, with strict velocity caps and friction damping for tight control.
+\* **Deadzone \& Speed Limit:** 12% deadzone prevents micro-drifting, with strict velocity caps and friction damping for tight control.
 
-\* <b>Live Ping:</b> Real-time round-trip latency shown in milliseconds on both screens.
+\* **Live Ping:** Real-time round-trip latency shown in milliseconds on both screens.
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<h2>Setup \& Running Locally</h2>
+<h2>Setup \\\& Running Locally</h2>
 
 
 
-1\. <b>Clone the repository:</b>
+1\. **Clone the repository:**
 
 ```bash
 
-git clone \[https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git](https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git)
+git clone \\\[https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git](https://github.com/KevinSolomon871/vinnovateit-anything-but-a-game-controller.git)
 
 cd vinnovateit-anything-but-a-game-controller
+
 
